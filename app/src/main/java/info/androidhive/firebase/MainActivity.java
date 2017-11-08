@@ -25,14 +25,14 @@ public class MainActivity extends AppCompatActivity {
     private  Button signOut;
     private Button add_money;
     private Button transfer;
-    private Button bill_payment;
+    private Button chatwithbot;
     private EditText oldEmail, newEmail, password, newPassword;
     private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
-
+    private Button faq;
 
 
     @Override
@@ -63,13 +63,13 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-       
 
 
 
+        faq = (Button) findViewById(R.id.faq);
         add_money = (Button) findViewById(R.id.add_money);
         transfer = (Button) findViewById(R.id.transfer);
-        bill_payment = (Button) findViewById(R.id.bill_payement);
+    chatwithbot = (Button) findViewById(R.id.chat_with_bot);
 
 /*        btnChangeEmail = (Button) findViewById(R.id.change_email_button);
         btnChangePassword = (Button) findViewById(R.id.change_password_button);
@@ -98,8 +98,24 @@ public class MainActivity extends AppCompatActivity {
              }
          });
 
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,FAQActivity.class);
+                startActivity(intent);
 
 
+
+            }
+        });
+
+        chatwithbot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,ChatBotActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
