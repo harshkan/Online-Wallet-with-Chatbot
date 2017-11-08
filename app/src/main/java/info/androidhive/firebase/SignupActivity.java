@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignupActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword;
-    private Button btnSignIn, btnSignUp, btnResetPassword;
+    private Button btnSignIn, btnSignUp;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
 
@@ -44,14 +44,14 @@ public class SignupActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
+       // btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
 
-        btnResetPassword.setOnClickListener(new View.OnClickListener() {
+     /*   btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignupActivity.this, ResetPasswordActivity.class));
             }
-        });
+        });*/
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,8 +98,10 @@ public class SignupActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                 } else {
                                     FirebaseUser user=auth.getCurrentUser();
-                                    String uid=user.getUid();
-                                    int bal=0;
+                                    String uid=user.getEmail();
+                                    uid=uid.replace(".",",");
+
+
                                     myRef.child(uid).child("Balance").setValue("0");
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                     finish();

@@ -36,7 +36,8 @@ public class AddMoneyActivity extends AppCompatActivity {
         amount = (EditText)findViewById(R.id.add_amount);
         auth=FirebaseAuth.getInstance();
         FirebaseUser user=auth.getCurrentUser();
-        final String uid=user.getUid();
+         String uidi=user.getEmail();
+        final String uid=uidi.replace(".",",");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("Users");
@@ -68,28 +69,8 @@ public class AddMoneyActivity extends AppCompatActivity {
                 myRef.child(uid).child("Balance").setValue(currentbal);
                 balance.setText("Current Balance :"+currentbal);
                 final int val=Integer.parseInt(String.valueOf(amount.getText()));
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // This method is called once with the initial value and again
-                        // whenever data at this location is updated.
-                        currentbal= (String) dataSnapshot.child(uid).child("Balance").getValue();
-
-                         adding=val+Integer.parseInt(currentbal);
-                        currentbal=adding+"";
-
-
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        // Failed to read value
-                        Log.w(TAG, "Failed to read value.", error.toException());
-                    }
-
-                });
+                adding=val+Integer.parseInt(currentbal);
+                currentbal=adding+"";
                 myRef.child(uid).child("Balance").setValue(currentbal);
                 balance.setText("Current Balance :"+currentbal);
 

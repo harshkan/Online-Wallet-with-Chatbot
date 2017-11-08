@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Firebase Auth</string>
+    <string name="app_name">Team_3</string>
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
@@ -35,7 +35,23 @@
     <string name="amount">Amount</string>
     <string name="add">Add</string>
     <string name="current_balance">Current Balance</string>
-    <string name="amount">Amount</string>
-    <string name="transfer">Transfer</string>
+    <string name="amountadder">Amount</string>
+    <string name="transferit">Transfer</string>
     <string name="receiveremail">ReceiverEmail</string>
+    <string name="current_balance2">Current Balance</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="addmoney1">AddMoney</string>
+    <string name="add_money">Add_Money</string>
+    <string name="transfer1">Transfer</string>
+    <string name="paybills">Pay_Bills</string>
+    <string name="sure">sure</string>
+    <string name="faq">FAQ</string>
+    <string name="send">Send</string>
+    <string name="todo1">TODO</string>
+    <string name="hello">Hello</string>
+    <string name="type_a_message2">Type a Message</string>
+    <string name="todo">TODO</string>
+    <string name="type_a_message">Type a Message</string>
+    <string name="todo2">TODO</string>
+    <string name="chat_with_bot">chat with bot</string>
 </resources>
